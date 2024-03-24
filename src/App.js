@@ -1,23 +1,37 @@
-import logo from './logo.svg';
+import Box from './component/Box'
 import './App.css';
 
+const choice = {
+  rock: {
+    name: "Rock",
+    img: "https://mnmsoft.co.kr/aivs/images/2.png"
+  },
+  scissors: {
+    name: "Scissors",
+    img: "https://mnmsoft.co.kr/aivs/images/1.png"
+  },
+  paper: {
+    name: "Paper",
+    img: "https://mnmsoft.co.kr/aivs/images/3.png"
+  }
+};
+
 function App() {
+  const play = (userChoice) => {
+    console.log("선택됌", userChoice);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className='main'>
+        <Box title="You" />
+        <img src="https://mnmsoft.co.kr/aivs/images/vs.png" />
+        <Box title="Computer" />
+      </div>
+      <div className='main'>
+        <button onClick={() => play("scissors")}>가위</button>
+        <button onClick={() => play("rock")}>바위</button>
+        <button onClick={() => play("paper")}>보</button>
+      </div>
     </div>
   );
 }
